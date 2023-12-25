@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 
 class Metod1
 {
@@ -32,13 +33,27 @@ class Metod1
                     }
 
                 case "pop":
-                    int poppedNumber = stek.Pop();
-                    Console.WriteLine(poppedNumber);
+                    if (stek.Count > 0)
+                    {
+                        int poppedNumber = stek.Pop();
+                        Console.WriteLine(poppedNumber);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка, невозможно удалить элемент так как стек пуст");
+                    }
                     break;
 
                 case "back":
-                    int topNumber = stek.Peek();
-                    Console.WriteLine(topNumber);
+                    if (stek.Count > 0)
+                    {
+                        int topNumber = stek.Peek();
+                        Console.WriteLine(topNumber);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка, стек пуст");
+                    }
                     break;
 
                 case "size":
